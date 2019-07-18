@@ -21,51 +21,111 @@ Below are the resources that I've used when building out these checklists
 
 ## Checklists
 The checks and the questions that this list present are expressed as positives. This is so that a checklist full of checks can represent that the code passes review.
+
 ### General Code Health
-- [ ] Is obvious behavior implemented? (G2)
-- [ ] Does the code behave correctly at the boundaries? (G3)
-- [ ] Does the code adhere to DRY (Don't Repeat Yourself)? Is the code free from duplicate code? (G5)
-- [ ] Is the code at the correct level of abstraction? (G6)
-- [ ] Are base classes independent of their derivatives? (G7)
-- [ ] Is there an appropriate level of information? (G8)
-- [ ] Is the code free from dead or unused code? (G9)
-- [ ] Is the code consistent with existing style and formatting? (G11)
-- [ ] Is the code free from clutter? (G12)
-- [ ] Is the code free from artificial coupling? (G13)
-- [ ] Is the code free from envy of another object's scope and abilities? (G14)
-- [ ] Is the code as expressive as possible? (G16)
-- [ ] Does the code adhere to the Single Responsibility Principle (G17)
-- [ ] Are dependent modules of code physically close together? (G22)
-- [ ] Is the code free from magic numbers and magic strings? (G25)
-- [ ] Are configuration options as high a level as possible in the abstraction? (G35)
+- [ ] Is obvious behavior implemented?
+- [ ] Does the code behave correctly at the boundaries?
+- [ ] Is the code at the correct level of abstraction?
+- [ ] Are base classes independent of their derivatives?
+- [ ] Is the code free from artificial coupling?
+- [ ] Is the code free from envy of another object's scope and abilities?
+- [ ] Is the code as expressive as possible?
+- [ ] Does the code adhere to the Single Responsibility Principle?
+
 ### Comments
-- [ ] Is the code free from comments that contain inappropriate information? (C1)
-- [ ] Is the code free from obsolete comments? (C2)
-- [ ] Is the code free from comments that will quickly become obsolete? (C3)
-- [ ] Is the code free from redundant comments? (C3)
-- [ ] Are all of the comments written well? (C4)
-- [ ] Is the code free from commented out code? (C5)
+- [ ] Is the code free from comments that contain inappropriate information?
+- [ ] Is the code free from obsolete comments?
+- [ ] Is the code free from comments that will quickly become obsolete?
+- [ ] Is the code free from redundant comments?
+- [ ] Are all of the comments written well?
+- [ ] Is the code free from commented out code?
+
+### Naming
+#### Have You Avoided...
+- [ ] ...names that are misleading?
+- [ ] ...names with similar meanings?
+- [ ] ...names that are different by only one or two characters?
+- [ ] ...names that sound similar?
+- [ ] ...names that use numerals?
+- [ ] ...names intentionally misspelled to make them shorter?
+- [ ] ...names that are commonly misspelled in English?
+- [ ] ...names that conflict with standard library-routine or with pre-defined variable names?
+- [ ] ...totally arbitrary names?
+- [ ] ...hard to read characters?
+
 ### Variables
-- [ ] Are variables defined closed to where they are used? (G10)
-- [ ] Are you using explanatory variables? Are the names descriptive? (G19, N1)
-- [ ] Does the variable name reflect the appropriate level of abstraction? (N2)
-- [ ] Is the variable name unambiguous? (N4)
-- [ ] Does the variable name avoid including type and scope information? (N6)
-### Functions
-- [ ] Are the functions defined closed to where they are used? (G10)
-- [ ] Does the function name says what it does? (G20)
-- [ ] Does the function do only one thing? (G30)
-- [ ] Does the function descend only one level of abstraction? (G34)
-- [ ] Does the function name reflect the appropriate level of abstraction? (N2)
-- [ ] Is the function name unambiguous? (N4)
-- [ ] Does the function name avoid including type and scope information? (N6)
+- [ ] Are variables defined closed to where they are used?
+- [ ] Does the code initialize variables as they're declared, if possible?
+- [ ] Does the variable have the smallest scope possible?
+- [ ] Are variables reinitialized properly in code that's executed repeatedly?
+- [ ] Are you using explanatory variables? Are the names descriptive?
+- [ ] Does the variable name reflect the appropriate level of abstraction?
+- [ ] Is the variable name unambiguous?
+- [ ] Does the variable name avoid including type and scope information?
+- [ ] Does each variable have one and only one purpose?
+
 ### Conditionals
-- [ ] Are conditionals encapsulated in a function or variable? (G28)
-- [ ] Are conditionals expressed as positives? (G29)
-- [ ] Are boundary conditions encapsulated in a function? (G33)
+- [ ] Are conditionals encapsulated in a function or variable?
+- [ ] Are conditionals expressed as positives?
+- [ ] Are boundary conditions encapsulated in a function?
+
+### Functions
+- [ ] Are the functions defined closed to where they are used?
+- [ ] Does the function name says what it does?
+- [ ] Does the function do only one thing?
+- [ ] Does the function descend only one level of abstraction?
+- [ ] Does the function name reflect the appropriate level of abstraction?
+- [ ] Is the function name unambiguous?
+- [ ] Does the function name avoid including type and scope information?
+
+### Classes
+
+#### Abstraction
+- [ ] Does the class have a central purpose?
+- [ ] Is the class well-named, and does the name describe its' central purpose?
+- [ ] Does the class's interface present a consistent abstraction?
+- [ ] Does the class's interface make obvious how the class should get used?
+- [ ] Is the class's interface abstract enough that you don't have to think about how its services are implemented?
+- [ ] Are the class's services complete enough that other classes don't have to meddle with its internal data?
+- [ ] Has unrelated information been moved out of the class?
+- [ ] Are you unable to split the class into subclasses?
+- [ ] Has the integrity of the class's interface been preserved?
+
+#### Encapsulation
+- [ ] Does the class minimize accessibility to its members?
+- [ ] Does the class avoid exposing member data?
+- [ ] Does the class hide its implementation details from other classes as much as possible?
+- [ ] Does the class avoid making assumptions about its users, including its derived classes?
+- [ ] Is the class independent of other classes? Is it loosely coupled?
+
+#### Inheritance
+- [ ] Is inheritance used only to model "is a" relationships?
+- [ ] Do child classes adhere to the Liskov Substitution Principle?
+- [ ] Do child classes avoid overriding non-overridable routines?
+- [ ] Are common interfaces, data, and behavior as high as possible in the inheritance tree?
+- [ ] Are inheritance trees fairly shallow?
+- [ ] Are all data members in the base class private rather than protected?
+
+#### Misc.
+- [ ] Does the class contain about seven data members or fewer?
+- [ ] Does the class minimize direct and indirect routing calls to other classes?
+- [ ] Does the class collaborate with other classes only to the extent absolutely necessary?
+- [ ] Is all member data initialized in the constructor?
+- [ ] Is the class designed to be used as deep copies rather than shallow copies unless there's a measured reason to create shallow copies?
+
+### Organization
+- [ ] Does the code read well from top to bottom?
+- [ ] Is the code free from dead or unused code?
+- [ ] Is the code consistent with existing style and formatting?
+- [ ] Is the code free from clutter?
+- [ ] Are dependent modules of code physically close together?
+- [ ] Is the code free from magic numbers and magic strings?
+- [ ] Are configuration options as high a level as possible in the abstraction?
+- [ ] Does the code adhere to DRY (Don't Repeat Yourself)? Is the code free from duplicate code?
+
 ### Tests
-- [ ] Are there sufficient tests for functionality? (T1)
-- [ ] Are there trivial tests? (T3)
-- [ ] Are all boundary conditions being tested for? (T5)
-- [ ] Is test execution fast? (T9)
+- [ ] Are there sufficient tests for functionality?
+- [ ] Are there trivial tests?
+- [ ] Are all boundary conditions being tested for?
+- [ ] Is test execution fast?
 
